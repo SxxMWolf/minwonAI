@@ -1,26 +1,29 @@
-### 1. 개요 및 추진 배경 (Overview & Background)
+### 1. 전략적 개요: 행정 UX 패러다임 전환 (Strategic Overview)
 
-#### 1.1 추진 배경: 행정의 한계와 도전
-- **복합 민원 급증**: 사회 구조 고도화에 따라 부처 간 경계를 넘나드는 다차원적 복합 민원 발생량 매년 15% 이상 증가.
-- **인구 구조 변화**: 고령 인구 및 디지털 취약계층 비중 확대로 인한 정보 격차 및 행정 접근성 저하.
-- **칸막이 행정의 한계**: 부처 간 데이터 단절 및 소관 불분명 민원의 경우 평균 3.5일 이상의 처리 지연 발생.
+#### 1.1 문제 정의: 기관 중심의 '역전된 UX'
+- **행정 구조 탐색의 강요**: 기존 민원 시스템은 기관·업무 중심으로 설계되어, 국민이 담당 기관 탐색, 민원 유형 판단, 서류 설계 및 개별 추적을 스스로 수행해야 하는 **역전된 UX 구조**를 가짐.
+- **복합 민원의 절단**: 하나의 '삶의 사건(Life-Event)'이 여러 부처의 행정 태스크로 분절되어, 사용자가 이를 직접 조합해야 하는 비효율 발생 (매년 복합 민원 발생량 15% 이상 증가).
+- **디지털 격차 심화**: 칸막이 행정과 복잡한 절차는 고령자 및 디지털 취약계층의 행정 접근성을 저하시킴.
 
 #### 1.2 전략적 비전
-**"국민은 더 이상 ‘어디에 민원을 넣어야 할지’ 고민하지 않아도 된다. AI는 문제를 분해하고, 실행하고, 결과까지 책임지는 행정 파트너가 된다."**
+> **“국민은 행정 구조를 탐색하지 않는다. AI는 국민의 삶의 이벤트를 이해하고, 필요한 절차를 자동 구성한다.”**
 
-**"기존 행정은 '민원을 기다리는 시스템'이었다면, 본 설계는 '문제를 예측하고 먼저 실행하는 시스템'으로의 패러다임을 전환한다."**
-
-본 설계안은 기존의 단순 '안내 및 접수' 중심 민원 행정을 넘어, AI 에이전트 오케스트레이션을 통한 **'연속적·선제적 실행형(Predictive & Proactive) 행정 서비스'**로의 진화를 목표로 함. 행정 프로세스의 디지털 트윈을 기반으로 민원의 복합적 맥락을 실시간 분석하고, 범정부 차원의 최적화된 실행 경로를 자율적으로 설계 및 제어하는 차세대 행정 인프라를 제안함.
+본 설계는 메뉴 기반의 탐색형 UX를 폐기하고, **'의도(Intent) 기반 → 이벤트(Event) 기반 → 자동 실행(Execution) 기반 행정 구조'**로의 대전환을 목표로 함. 단순 안내를 넘어 AI 에이전트 오케스트레이션을 통한 **'연속적·선제적 실행형(Predictive & Proactive) 행정 서비스'**를 구현함.
 
 ---
 
-### 2. 차세대 AI 행정 아키텍처 (Advanced Architecture)
+### 2. Event-Driven AI 행정 아키텍처 (Advanced Architecture)
 
-#### 2.1 멀티에이전트 기반 가상 행정 오케스트레이션
-- **Master Strategic Planner**: 민원인의 초저개인화된 요구사항을 해석하고, 행정 목적 달성을 위한 최적의 'Action Plan'을 생성함.
-- **Process Digital Twin Agent**: 현실의 행정 절차를 가상 세계에 복제하여 실행 전 시뮬레이션을 수행하고, 병목 구간 및 법령 위반 가능성을 사전 예측(Predictive)함. **AR/VR 기술을 통해 현장 창구 위치 및 민원 과정을 가상으로 사전 체험(Simulated Experience)하도록 지원함.**
-- **Domain Specialist Swarm**: 각 부처별 전문 데이터셋과 RAG로 무장한 에이전트 군집이 복합 민원의 세부 태스크를 병렬 처리하며, 부처 간 칸막이 없는 협업(Seamless Collaboration)을 수행함.
-- **App-based Real-time Navigator**: 채팅창을 넘어 앱 화면 전반에서 사용자의 다음 단계, 필요한 서류, 버튼 클릭 위치 등을 실시간 HUD(Heads-up Display) 형태로 안내함.
+#### 2.1 Life-Event Ontology 및 멀티에이전트 기반 오케스트레이션
+행정 단위를 '업무'가 아닌 **삶의 사건(Life-Event)** 중심으로 재정의하여 대규모 지식 그래프와 에이전트 군집을 연계함.
+- **Life-Event Ontology**: 출생, 이사, 취업, 졸업 등 주요 생애 주기를 마디로 하는 복합 민원 그래프 구조. 각 이벤트는 다수의 행정 서비스와 다대다(N:M)로 매핑됨.
+- **Master Strategic Planner (MSP)**: 사용자의 단일 입력을 분석하여 최적의 **Composite Task Graph(DAG)**를 자동 생성함.
+- **Composite Complaint Decomposition Engine**:
+    - **Dependency Resolution Engine**: 선행(Precondition), 병렬(Parallel), 조건부(Conditional) 관계를 고려한 DAG 자동 생성 및 누락 요건 실시간 탐지.
+    - **Parallel Execution Optimizer**: 병렬 처리 가능 태스크를 그룹화하고 기관 API를 동시 호출하여 체감 대기 시간을 최소화함.
+    - **Conflict & Redundancy Detection**: 중복 신청 탐지 및 정책 수혜 충돌(Conflict)을 사전에 감지하여 이미 처리된 민원 자동 제외.
+- **Process Digital Twin Agent**: 행정 절차를 가상 모형화하여 실행 전 시뮬레이션을 수행하고 병목 구간을 사전 예측함.
+- **App-based Real-time Navigator**: 채팅창 및 앱 전반에서 필요한 서류 및 클릭 위치를 실시간 HUD(Heads-up Display)로 안내함.
 
 #### 2.2 하이퍼 오케스트레이션 흐름도 (Hyper-Orchestration Flow)
 ```mermaid
@@ -56,8 +59,12 @@ graph TD
 
 본 시스템은 고신뢰 행정 업무의 특성을 고려하여, 복원력과 투명성이 확보된 계층형 기술 스택을 기반으로 설계됨.
 
-#### 3.1 Orchestration & Multi-Agent Framework
-- **Framework**: **Graph-based Orchestration Framework (예: LangGraph)** 기반의 유향 순환 그래프(Directed Acyclic Graph) 구조 채택. 상태 전이(State Transition)의 명확한 통제와 에이전트 간의 루프(Feedback Loop) 제어를 최적화함.
+#### 3.1 Orchestration & Intelligent Pipeline
+- **Intent Recognition Pipeline**: 
+    - **Stage 1 (BERT)**: 경량화된 BERT 기반 모델을 통한 1차 고속 분류 (민원 유형 및 키워드 추출).
+    - **Stage 2 (LLM)**: LLM을 통한 의미 보정 및 세부 맥락 해석.
+- **Action Plan Generation**: 해석된 의도를 기반으로 JSON 형태의 실행 계획을 생성하여 범정부 차원의 오케스트레이션 수행.
+- **Framework**: **LangGraph** 기반의 DAG 구조 채택. Redis를 활용한 세션 상태 관리 및 Workflow Template Engine을 통한 서비스별 표준 실행 템플릿 운영.
 - **Control Logic**: **Execution Governor**가 각 노드의 입출력을 검증하며, 사전에 정의된 **Administrative Schema (예: JSON 기반 행정 태스크 검증 스키마)**를 벗어나는 추론을 원천 차단함.
 
 #### 3.2 LLM & Knowledge Layer
@@ -74,9 +81,10 @@ graph TD
     - **Model**: 과거 민원 처리 데이터를 학습한 **시계열 예측 모델 및 그래프 기반 병목 탐지 모델**을 활용하여 부서 간 병목 구간을 탐지함.
     - **Simulation**: 민원 투입 시 디지털 트윈 상에서 가상 실행을 거쳐 예상 소요 시간 및 리스크 점수(Risk Score)를 산출함.
 
-#### 3.4 Governance & Security Stack
-- **Audit & Logging**: AI의 핵심 **판단 근거 요약 로그 (Summary of Reasoning Path)**를 **Elasticsearch / Fluentd** 기반의 통합 로그 스택에 아카이빙하며, 위변조 방지를 위한 불변 로그 레코드(Immutable Log)를 생성함.
-- **Zero Trust Security**: 모든 에이전트 간 통신에 mTLS를 적용하고, **RBAC (Role-Based Access Control)**를 통해 행정 데이터 접근 권한을 최소 단위로 제어함.
+#### 3.4 Governance, Security & Standards
+- **Unified Service Schema**: 모든 공공 서비스에 대해 `service_id`, `managing_org`, `legal_basis`, `required_documents`, `processing_time`, `eligibility` 등을 포함한 표준 스키마 적용.
+- **API 연계 표준**: MCP 기반 Tool Adapter, OpenAPI 3.0 스키마, OAuth 2.0 인증 및 mTLS 통신을 적용한 API Gateway 중앙 제어 체계 구축.
+- **Audit & Logging**: AI의 핵심 **판단 근거 요약 로그 (Summary of Reasoning Path)**를 Elasticsearch 기반으로 아카이빙하여 위변조 방지 및 책임 행정 구현.
 
 ---
 
@@ -84,34 +92,32 @@ graph TD
 
 #### ① 이사 원스톱 AI 민원 자동 처리 플랫폼
 - **Event Recognition**: 사용자가 “이사했어요” 입력 시 생활 이벤트로 인식. 나이, 세대 구성, 차량 보유, 자녀 유무 등을 분석하여 복합 민원 자동 분해.
-- **Micro-Task Mapping**: 전입신고, 자동차 주소 변경, 초등학교 전학, 건보료 변동, 지방세 납부지 변경, 도시가스/통신사 주소 변경 등 자동 매핑.
-- **Optimal Route Design**: “전입신고 완료 → 차량 변경 → 건보 자동 연동 → 학교 전학 서류 제출” 순으로 기관 간 종속성을 고려해 경로 자동 최적화.
-- **Step-by-Step UI**: 실제 신청 페이지 위에서 “주민번호 입력 → 다음 클릭 → 파일 업로드” 등 HUD 기반 실시간 안내 및 음성 안내 지원.
+- **Micro-Task Mapping (Action Plan)**:
+    - **전입신고** (선행)
+    - **자동차 주소 변경** (병렬)
+    - **건강보험 자격 변경** (조건부)
+    - **초등학교 전학** (자녀 여부 조건)
+- **Embedded Execution**: 대화창 내부에서 진행 단계 타임라인, 입력 정보 요약 카드, 실행 버튼을 제공하여 실시간 처리 상태 표시.
 - **AR/VR Guide**: 오프라인 창구 방문 필요 시 AR 길 안내 및 민원 과정 사전 시뮬레이션 제공.
 
-#### ② 취업·실업 상태 변화 대응 AI
-- **Contextual Analysis**: “실직했어요” 입력 시 고용보험 이력, 소득 수준, 부양가족 등을 분석해 실업급여 및 직업훈련 지원금 자동 매칭.
-- **Active Interaction**: “최근 18개월 중 180일 이상 근무하셨나요?” 등 AI가 능동적으로 질문하여 정보 완성도 제고.
-- **Online Servant Execution**: “신청해줘” 명령 시 AI가 온라인 신청을 직접 수행(Direct Execution)하고 서류 위변조 실시간 검증.
-- **Impact Prediction**: 취업 시 4대 보험 전환, 세금 구조 변화, 청년 정책 종료 여부 등을 선제 분석하여 사각지대 해소.
-
-#### ③ 대학생 생활 변화 대응 AI
-- **Academic Event Tracking**: “휴학 예정이에요”, “졸업했어요” 등 학적 변화 인식. 국가장학금, 건보 피부양자 자격, 기숙사 행정 자동 연계.
-- **Customized Path**: 학생의 소득 분위, 거주 형태를 분석해 “휴학 신청 → 장학금 정지 → 건보 자격 확인” 등 최적 경로 생성.
+#### ② 졸업 예정자 지원 통합 탐색
+- **Academic Event Tracking**: “졸업 앞두고 받을 수 있는 지원 있나요?” 등 학적 변화 인식. 
+- **Contextual Analysis**: 청년 정책 DB 자동 매칭을 통해 국가장학금 정지 대응, 취업 지원금, 건보 피부양자 자격 유지 여부 등 분석.
+- **Active Recommendation**: 학생의 소득 분위, 거주 형태를 분석해 즉시 신청 가능한 항목 필터링 및 신청 버튼 제공.
 - **Multi-Agency Orchestration**: 지자체, 건보공단, 병무청 등 다수 기관 에이전트 간의 승인 순서 및 일정 자율 조율.
-- **Future Forecasting**: 졸업 후 미취업 시 구직 지원금 추천, 창업 시 사업자 등록 연계 등 향후 행정 이벤트를 사전 예측하여 알림 제공.
 
 ---
 
-### 5. 고도화된 대응 및 제어 체계 (Control & Accountability)
+#### 5.1 대화형 실행 UX (Embedded Execution UX) 및 지능형 라우팅
+- **Embedded Execution UI**: 대화와 실행을 분리하지 않고 대화창 내에서 직접 행정 태스크를 수행함.
+    - **Timeline**: 전체 공정의 진행 단계 및 현재 위치 가시화.
+    - **Summary Card**: 입력 정보 및 처리 결과의 핵심 요약 제공.
+    - **Action Button**: 복잡한 폼 입력 없이 AI가 정리한 정보 확인 후 즉시 실행.
+- **Dynamic Action Routing**: 실시간 행정 자원과 연동하여 AI와 인간의 최적 협업 경로를 배정함.
 
-#### 3.1 맥락 기반 복합 민원 분해 및 지능형 라우팅
-- **Contextual Decomposition**: 단순 키워드 분류가 아닌, 민원 이면의 사회적 요구사항과 법적 중복성을 해석하여 최적화된 원스톱 태스크로 재구성함.
-- **Dynamic Action Routing**: 실시간 행정 자원(공무원 가용성, 처리 소요 시간 예측)과 연동하여 AI와 인간의 최적 협업 경로를 동적으로 배정함.
-
-#### 3.2 Explainable AI (XAI) 및 책임 행정 구조
-- **Traceable Reasoning**: AI의 모든 판단 과정(Chain-of-Thought)을 기록하고, 이를 공무원 및 민원인에게 이해 가능한 자연어로 설명하는 감사 추적(Audit Trail) 시스템 구축.
-- **Human-in-the-Loop Governance**: AI가 고위험 판단(재량권 행사 등)을 내릴 경우, 디지털 트윈 결과값과 함께 담당 공무원에게 자동 에스컬레이션하여 최종 책임성을 확보함.
+#### 5.2 Explainable AI (XAI) 및 책임 행정 구조
+- **Traceable Reasoning**: AI의 모든 판단 과정(Chain-of-Thought)을 기록하고 감사 추적(Audit Trail) 시스템 구축.
+- **Human-in-the-Loop Governance**: 고위험 판단 시 디지털 트윈 결과와 함께 공무원에게 에스컬레이션하여 최종 책임성 확보.
 
 ---
 
