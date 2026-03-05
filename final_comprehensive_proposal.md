@@ -443,10 +443,42 @@ AI 기반 행정 인프라는 오류 발생 시에도 행정 서비스의 연속
 
 ### 4.1 정량적 개발 범위 정의 (Quantitative Scope)
 본 사업의 초기 단계에서 다루게 될 핵심 물량은 다음과 같습니다.
+
+#### 4.1.1 지능형 행정 시스템 모듈 구조 (Module Architecture)
+시스템의 핵심 기능 블록과 데이터 흐름을 시각화합니다.
+
+```mermaid
+graph TD
+    User((사용자)) --> Shield[AI Digital Shield<br/>1차 필터링/보안]
+    Shield --> NLP[Intent Analysis & NLU<br/>의도 파악/추론]
+    NLP --> Orchestrator[Task Orchestrator<br/>DAG 워크플로우 설계]
+    Orchestrator --> RAG[Hybrid RAG & KG Engine<br/>법령/지능 검색]
+    Orchestrator --> Risk[Risk Scoring Engine<br/>리스크 산출]
+    RAG --> DB[(Policy & Law DB<br/>법령/지침 저장소)]
+    Risk --> Decision{Decision Engine<br/>판단 엔진}
+    Decision -->|Low Risk| Exec[API Execution Adapter<br/>행정 시스템 연동]
+    Decision -->|High Risk| HITL[Human-In-The-Loop<br/>공무원 최종 승인]
+    Exec --> Legacy[Agency Systems<br/>부처별 레거시]
+    HITL --> Exec
+    Exec --> Audit[Blockchain Audit Log<br/>블록체인 감사로그]
+```
+
 - **Pilot 대상 민원 서비스**: 12개 핵심 생애 주기 이벤트 연계 민원.
 - **연계 행정 기관 수**: 중앙 부처 및 지자체 포함 32개소.
 - **구축 및 연계 API**: 통합 스키마 기반 표준 **API 120개 이상** 구축.
 - **[구축 로드맵]**: 행안부 디지털서비스 개방(Open API) 70% 활용 + 부처별 전용 어댑터(Adapter) 30% 신규 개발. Gateway 기반 보안 검증 및 연계 표준 적용.
+
+#### 4.1.2 단계별 구축 로드맵 (Phase-by-Phase Roadmap)
+3개년에 걸친 시스템 고도화 및 전국 확산 전략입니다.
+
+```mermaid
+timeline
+    title AI 행정 시스템 구축 로드맵 (3-Year Plan)
+    2026 (Year 1) : 파일럿 도입 및 기반 구축 : 12대 핵심 서비스 개발 : AI 1차 완충 시스템(L2) 적용 : 32개 기관 API 연계 표준화
+    2027 (Year 2) : 전국 확산 및 지능화 고도화 : 행정 서비스 100종 확대 : L3(조건 자동 판정) 도입 : 범정부 마이데이터 연계 강화
+    2028 (Year 3) : 자율 행정 및 거버넌스 완성 : L4(에이전트 대행) 제한적 허용 : 블록체인 기반 책임 행정 정착 : 글로벌 표준 K-행정 모델 수출
+```
+
 - **지식 그래프(Knowledge Graph) 규모**: 초기 노드 **약 10,000개 내외 (±10%)**, 관계(Edge) **약 3.5만 건**.
 - **[산출 근거]**: (12대 서비스 × 100개 과업) + (32개 기관 × 180개 정책) + (핵심 법령/지점: 3,000) 등 가변적 데이터 수용 범위를 고려한 설계.
 - **[180개 정책 노출 근거]**: 행안부 '정부 기능 분류 체계(BRM)' 상의 중분류 기준, 파일럿 대상 32개 기관 업무 중 대민 서비스 밀착도가 높은 핵심 공정(Process) 평균 수치를 적용하여 실효성 확보.
@@ -470,6 +502,24 @@ AI 기반 행정 인프라는 오류 발생 시에도 행정 서비스의 연속
 
 ### 4.3 주요 리스크 식별 및 실무적 대응 전략 (Risk Management)
 본 사업의 안정적인 정착과 공공 행정의 신뢰성 확보를 위해 4대 핵심 리스크에 대한 실무적 대응 체계를 가동합니다.
+
+#### 4.3.1 리스크 매트릭스 및 우선순위 (Risk Matrix)
+식별된 주요 리스크의 영향도와 발생 가능성을 분석하여 전략적 대응 우선순위를 설정합니다.
+
+```mermaid
+quadrantChart
+    title AI 행정 리스크 매트릭스 (Impact vs. Likelihood)
+    x-axis "Likelihood (발생 가능성)"
+    y-axis "Impact (영향도)"
+    quadrant-1 "Critical Risks (상시 관리)"
+    quadrant-2 "High Risks (선제 대응)"
+    quadrant-3 "Low Risks (모니터링)"
+    quadrant-4 "Operational Risks (절차 보완)"
+    "AI 오판/환각": [0.6, 0.9]
+    "개인정보 유출": [0.3, 0.95]
+    "기관 연계 지연": [0.8, 0.6]
+    "공무원 수용성": [0.7, 0.5]
+```
 
 | 분류 | 주요 리스크 | 전략적 대응 방안 (Mitigation Strategy) |
 | :--- | :--- | :--- |
