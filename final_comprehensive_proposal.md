@@ -344,12 +344,12 @@ graph TD
 
 ```mermaid
 graph LR
-    Citizen["Citizen (국민)"] ---|> Interface["AI Interface"]
-    Interface ---|> Intent["Intent Engine (의도 파악)"]
-    Intent ---|> KG["Knowledge Graph (법령/절차)"]
-    KG ---|> Workflow["Workflow Engine (DAG)"]
-    Workflow ---|> Gateway["Government API Gateway"]
-    Gateway ---|> Agency["Agency Systems (기관 시스템)"]
+    Citizen["Citizen (국민)"] --> Interface["AI Interface"]
+    Interface --> Intent["Intent Engine (의도 파악)"]
+    Intent --> KG["Knowledge Graph (법령/절차)"]
+    KG --> Workflow["Workflow Engine (DAG)"]
+    Workflow --> Gateway["Government API Gateway"]
+    Gateway --> Agency["Agency Systems (기관 시스템)"]
     
     subgraph "Intelligent Core"
         Intent
