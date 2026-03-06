@@ -1,2 +1,17 @@
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# General temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Folder-specific metadata
 **/.DS_Store
